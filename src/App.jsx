@@ -1,16 +1,12 @@
 import { useState } from "react";
-import Card from "../components/Card";
 import { urls } from "../data/cards";
 import { v4 as uuidv4 } from "uuid";
+import Gameboard from "../components/Gameboard";
+
+const urlsWithIds = Object.fromEntries(urls.map((url) => [uuidv4(), url]));
 
 function App() {
-  return (
-    <div className="gameboard">
-      {urls.map((url) => (
-        <Card key={uuidv4()} imgUrl={url} />
-      ))}
-    </div>
-  );
+  return <Gameboard imgUrls={urlsWithIds} />;
 }
 
 export default App;

@@ -4,3 +4,7 @@
 
     border: 5px solid black;
 }
+
+.card:hover {
+    border-color: purple;
+}
