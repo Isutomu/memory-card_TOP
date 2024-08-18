@@ -1,7 +1,7 @@
 export default function Card({ imgUrl }) {
   return (
-    <div className="card">
+    <button className="card">
       <img src={imgUrl} />
-    </div>
+    </button>
   );
 }
