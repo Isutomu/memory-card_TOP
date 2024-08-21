@@ -57,7 +57,6 @@ export default function Gameboard({ imgUrls }) {
             cardId={id}
             imgUrl={imgUrls[id]}
             handleSelection={handleSelection}
-            selected={cardsSelected.includes(id)}
           />
         ))}
       </div>
