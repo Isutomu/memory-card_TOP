@@ -2,9 +2,15 @@ import { useState } from "react";
 import Card from "./Card";
 import { shuffle } from "fast-shuffle";
 
-export default function Gameboard({ imgUrls }) {
+export default function Gameboard({ imgUrls, updateScore }) {
   const [cardsIds, setCardsIds] = useState(Object.keys(imgUrls));
   const [cardsSelected, setCardsSelected] = useState([]);
+
+  const score = (() => {
+    const cardsSelectedSet = new Set(cardsSelected);
+    return cardsSelectedSet.size;
+  })();
+  updateScore(score);
 
   const hasWon = cardsSelected.length === cardsIds.length;
   const hasLost = (function () {
@@ -12,8 +18,7 @@ export default function Gameboard({ imgUrls }) {
       return false;
     }
 
-    const cardsSelectedSet = new Set(cardsSelected);
-    return cardsSelected.length !== cardsSelectedSet.size;
+    return cardsSelected.length !== score;
   })();
 
   if (hasWon) {
