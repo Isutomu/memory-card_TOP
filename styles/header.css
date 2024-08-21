@@ -1,0 +1,15 @@
+header {
+    padding: 15px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .score {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    font-size: 2rem;
+}

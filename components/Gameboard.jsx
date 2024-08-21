@@ -49,7 +49,14 @@ export default function Gameboard({ imgUrls }) {
 
   return (
     <>
-      <Score bestScore={bestScore} currentScore={currentScore} />
+      <header>
+        <h1>
+          Legends of Runeterra
+          <br />
+          Memory Game
+        </h1>
+        <Score bestScore={bestScore} currentScore={currentScore} />
+      </header>
       <div className="gameboard">
         {cardsIds.map((id) => (
           <Card
