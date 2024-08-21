@@ -1,6 +1,10 @@
-export default function Card({ imgUrl }) {
+export default function Card({ cardId, imgUrl, handleSelection, selected }) {
   return (
-    <button className="card">
+    <button
+      className={`card` + (selected ? " selected" : "")}
+      data-card-id={cardId}
+      onClick={handleSelection}
+    >
       <img src={imgUrl} />
     </button>
   );

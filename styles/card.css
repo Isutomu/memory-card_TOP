@@ -8,3 +8,7 @@
 .card:hover {
     border-color: purple;
 }
+
+.selected {
+    background-color: aqua;
+}
