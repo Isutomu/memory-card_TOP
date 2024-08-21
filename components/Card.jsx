@@ -5,7 +5,7 @@ export default function Card({ cardId, imgUrl, handleSelection, selected }) {
       data-card-id={cardId}
       onClick={handleSelection}
     >
-      <img src={imgUrl} />
+      <img data-card-id={cardId} src={imgUrl} />
     </button>
   );
 }

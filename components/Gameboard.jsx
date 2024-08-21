@@ -6,9 +6,29 @@ export default function Gameboard({ imgUrls }) {
   const [cardsIds, setCardsIds] = useState(Object.keys(imgUrls));
   const [cardsSelected, setCardsSelected] = useState([]);
 
+  const hasWon = cardsSelected.length === cardsIds.length;
+  const hasLost = (function () {
+    if (cardsSelected.length === 0) {
+      return false;
+    }
+
+    const cardsSelectedSet = new Set(cardsSelected);
+    return cardsSelected.length !== cardsSelectedSet.size;
+  })();
+
+  if (hasWon) {
+    alert("won!");
+  }
+
+  if (hasLost) {
+    alert("lost!");
+  }
+
   function handleSelection(e) {
+    const selectedCardId = e.target.dataset.cardId;
+
     setCardsIds(shuffle(cardsIds));
-    setCardsSelected([...cardsSelected, e.target.dataset.cardId]);
+    setCardsSelected([...cardsSelected, selectedCardId]);
   }
 
   return (
